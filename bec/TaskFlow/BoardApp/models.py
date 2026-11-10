@@ -20,7 +20,7 @@ class Membership(models.Model):
         MODERATOR = 2, 'Модератор'
         OWNER = 3, 'Создатель'
 
-    user = models.ForeignKey('UserApp.User', on_delete=models.SET_NULL, null=True)
+    user = models.ForeignKey('UserApp.User', on_delete=models.CASCADE)
     board = models.ForeignKey('Board', on_delete=models.CASCADE)
     role = models.IntegerField(choices=Role.choices, default=Role.GUEST)
 
