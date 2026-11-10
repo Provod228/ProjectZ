@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "my-app3",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["--prefix", "web/my-app3", "run", "dev", "--", "--port", "5175", "--strictPort"],
+      "port": 5175
+    },
+    {
+      "name": "my-app4",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["--prefix", "web/my-app4", "run", "dev", "--", "--port", "5176", "--strictPort"],
+      "port": 5176
+    }
+  ]
+}
