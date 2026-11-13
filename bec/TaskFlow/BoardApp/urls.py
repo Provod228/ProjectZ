@@ -1,8 +1,8 @@
+from rest_framework.routers import DefaultRouter
 
+from .views import BoardModelViewSet
 
-app_name = 'BoardApp'
+router = DefaultRouter()
+router.register('boards', BoardModelViewSet, basename='board')
 
-
-urlpatterns = [
-
-]
+urlpatterns = router.urls
