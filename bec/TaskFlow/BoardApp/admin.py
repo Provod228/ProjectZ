@@ -19,11 +19,22 @@ class TaskAdmin(admin.ModelAdmin):
     list_editable = ('priority',)
 
 
+class ColumnInline(admin.TabularInline):
+    model = Column
+    extra = 0
+
+
+class MembershipInline(admin.TabularInline):
+    model = Membership
+    extra = 0
+
+
 @admin.register(Board)
 class BoardAdmin(admin.ModelAdmin):
     list_display = ('title', 'date_created')
     search_fields = ('title', )
     list_filter = ('date_created',)
+    inlines = (ColumnInline, MembershipInline)
 
 
 @admin.register(Membership)
@@ -43,5 +54,6 @@ class ColumnAdmin(admin.ModelAdmin):
 @admin.register(Comment)
 class CommentAdmin(admin.ModelAdmin):
     list_display = ('task', 'author', 'text', 'date_created')
-    list_filter = ('text', 'task__title', 'author__username')
+    search_fields = ('text', 'task__title', 'author__username')
+    list_filter = ('date_created',)
     list_select_related = ('task', 'author')
