@@ -37,7 +37,7 @@ class Membership(models.Model):
 
 class Column(models.Model):
 
-    board = models.ForeignKey('Board', on_delete=models.CASCADE)
+    board = models.ForeignKey('Board', on_delete=models.CASCADE, related_name='columns')
     title = models.CharField(max_length=100)
     order = models.PositiveIntegerField(default=0)
 
