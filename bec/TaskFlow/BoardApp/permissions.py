@@ -4,7 +4,7 @@ from .models import Membership
 
 
 class BoardPermission(BasePermission):
-    massage = "У вас не достаточно прав"
+    message = "У вас не достаточно прав"
 
     def has_object_permission(self, request, view, obj):
         user_permissions = (
@@ -13,7 +13,7 @@ class BoardPermission(BasePermission):
             user=request.user, board=obj
             )
             .values_list("role", flat=True)
-            .filter()
+            .first()
         )
 
         if user_permissions is None:
