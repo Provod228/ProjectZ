@@ -1,9 +1,10 @@
 from rest_framework.routers import DefaultRouter
 from django.urls import path
-from .views import (
-    BoardModelViewSet, ColumnDetailView, ColumnListView, CommentDetailView,
-    CommentListView, TaskDetailView, TaskListView,
-)
+
+from BoardApp.views.boards import BoardModelViewSet
+from BoardApp.views.columns import ColumnListView, ColumnDetailView
+from BoardApp.views.comments import CommentListView, CommentDetailView
+from BoardApp.views.tasks import TaskListView, TaskDetailView
 
 router = DefaultRouter()
 router.register('boards', BoardModelViewSet, basename='board')
